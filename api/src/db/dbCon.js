@@ -1,8 +1,8 @@
 import sequelize_pkg from "sequelize";
 
-const { Sequelize, Model, DataTypes } = sequelize_pkg;
+const { Sequelize } = sequelize_pkg;
 
-const sequelize = new Sequelize("meals", "root", "password", {
+export const sequelize = new Sequelize("mealReview", "root", "password", {
   host: "localhost",
   dialect: "postgres",
 });
