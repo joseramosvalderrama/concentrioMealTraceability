@@ -1,30 +1,67 @@
 import express from "express";
-import { repo } from "./db/restaurantRepository.js";
+import { repo as restaurantRepo } from "./db/restaurantRepository.js";
+import { repo as dishRepo } from "./db/dishRepository.js";
+import { repo as scoreRepo } from "./db/scoreRepository.js";
 
 export const router = express.Router();
 
-router.get("/restaurant", async (req, res) => {
-  const restaurants = await repo.findAll();
+const BASE_URL = "/restaurant";
+
+router.get(`${BASE_URL}/statistic/main`, async (req, res) => {
+  const restaurants = await restaurantRepo.findAll();
+  const dishes = await dishRepo.findAll();
+  const scores = await scoreRepo.findAll();
+
+  const dishGroupByUuid = dishes.reduce((acc, dish) => {
+    acc[dish.uuid] = dish;
+    return acc;
+  }, {});
+
+  const bodyResponse = restaurants.map((restaurant) => {
+    const restaurantScores = scores.filter(
+      (score) => score.restaurantUuid === restaurant.uuid
+    );
+    const average = getAverage(restaurantScores.map((score) => score.score));
+    const dishesOrderedByScore = restaurantScores
+      .map((score) => ({
+        ...dishGroupByUuid[score.dishUuid],
+        score: score.score,
+      }))
+      .sort((a, b) => a.score - b.score);
+    return {
+      ...restaurant,
+      average: average,
+      dishesOrderedByScore: dishesOrderedByScore,
+    };
+  });
+  res.json(bodyResponse);
+});
+
+const getAverage = (list) =>
+  restaurantScores.reduce((acc, num) => acc + num, 0) / list.length;
+
+router.get(`${BASE_URL}`, async (req, res) => {
+  const restaurants = await restaurantRepo.findAll();
   res.json(restaurants);
 });
 
-router.post("/restaurant", async (req, res) => {
-  await repo.create(req.body);
+router.post(`${BASE_URL}`, async (req, res) => {
+  await restaurantRepo.create(req.body);
   res.sendStatus(200);
 });
 
-router.get("/restaurant/:uuid", async (req, res) => {
+router.get(`${BASE_URL}/:uuid`, async (req, res) => {
   const uuid = req.params.uuid;
-  const restaurant = await repo.findByUuid(uuid);
+  const restaurant = await restaurantRepo.findByUuid(uuid);
   res.json(restaurant);
 });
 
-router.put("/restaurant", async (req, res) => {
-  await repo.update(req.body);
+router.put(`${BASE_URL}`, async (req, res) => {
+  await restaurantRepo.update(req.body);
   res.sendStatus(200);
 });
 
-router.delete("/restaurant/:uuid", async (req, res) => {
-  await repo.deleteByUuid(req.params.uuid);
+router.delete(`${BASE_URL}/:uuid`, async (req, res) => {
+  await restaurantRepo.deleteByUuid(req.params.uuid);
   res.sendStatus(200);
 });
