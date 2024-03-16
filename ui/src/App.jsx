@@ -1,18 +1,7 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import Main from "./pages/Main";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div>
-        <p className="text-3xl">Concentrio meal trazability</p>
-      </div>
-    </>
-  );
+  return <Main />;
 }
 
 export default App;
