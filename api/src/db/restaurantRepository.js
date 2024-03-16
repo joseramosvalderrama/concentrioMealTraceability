@@ -1,9 +1,10 @@
 import sequelize_pkg from "sequelize";
-import { sequelize } from "./dbCon";
+import { sequelize } from "./dbCon.js";
+import { toPlainObj } from "./util.js";
 
 const { Model, DataTypes } = sequelize_pkg;
 
-const Restaurant = class extends Model {};
+let Restaurant = class extends Model {};
 Restaurant = Restaurant.init(
   {
     uuid: {

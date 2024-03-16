@@ -1,0 +1,126 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "concentrio_meal_traceability",
+  "dateExported": "2024-03-16T07:58:33.041Z",
+  "version": "1.1",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "c6e66ca6-20f8-4294-a80a-aeffd068d3ad",
+      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
+      "containerId": "",
+      "name": "dishGetAll",
+      "url": "http://localhost:3000/dish",
+      "method": "GET",
+      "sortNum": 10000,
+      "created": "2024-03-16T07:36:13.521Z",
+      "modified": "2024-03-16T07:36:23.141Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "50e9cd21-97d8-4dbe-b0f5-04b97ccc2d12",
+      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
+      "containerId": "",
+      "name": "dishPost",
+      "url": "http://localhost:3000/dish",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2024-03-16T07:36:27.073Z",
+      "modified": "2024-03-16T07:38:29.111Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"curry wurst\"\n}",
+        "form": []
+      },
+      "reqType": "get",
+      "tests": []
+    },
+    {
+      "_id": "54775707-fc73-4c4f-81f8-7ee7064abd67",
+      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
+      "containerId": "",
+      "name": "restaurantGetAll",
+      "url": "http://localhost:3000/restaurant",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2024-03-16T07:45:16.339Z",
+      "modified": "2024-03-16T07:45:34.701Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "badd8b6d-24e8-41be-9e6c-4bb0c6730daa",
+      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
+      "containerId": "",
+      "name": "restaurantStatisticMain",
+      "url": "http://localhost:3000/restaurant/statistic/main",
+      "method": "GET",
+      "sortNum": 20000,
+      "created": "2024-03-16T07:54:41.582Z",
+      "modified": "2024-03-16T07:55:03.375Z",
+      "headers": [],
+      "params": [],
+      "tests": []
+    },
+    {
+      "_id": "8732107f-3a2c-4f41-a9aa-a83b853ce5d7",
+      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
+      "containerId": "",
+      "name": "restaurantPost",
+      "url": "http://localhost:3000/restaurant",
+      "method": "POST",
+      "sortNum": 22500,
+      "created": "2024-03-16T07:46:33.042Z",
+      "modified": "2024-03-16T07:47:25.939Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Mechanic kantine\"\n}",
+        "form": []
+      },
+      "reqType": "get",
+      "tests": []
+    },
+    {
+      "_id": "d043b14a-efcd-4cfd-a34c-1001e6bd3ada",
+      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
+      "containerId": "",
+      "name": "scoreGetAll",
+      "url": "http://localhost:3000/score",
+      "method": "GET",
+      "sortNum": 25000,
+      "created": "2024-03-16T07:48:37.728Z",
+      "modified": "2024-03-16T07:49:37.955Z",
+      "headers": [],
+      "params": [],
+      "reqType": "get",
+      "tests": []
+    },
+    {
+      "_id": "5a859d07-747d-4fb7-8cf7-833c618ef10e",
+      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
+      "containerId": "",
+      "name": "scoreGetAll Copy",
+      "url": "http://localhost:3000/score",
+      "method": "POST",
+      "sortNum": 35000,
+      "created": "2024-03-16T07:50:05.426Z",
+      "modified": "2024-03-16T07:53:06.827Z",
+      "headers": [],
+      "params": [],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"score\": 4.5,\n  \"comment\": \"Delicious\",\n  \"restaurantUuid\": \"a0643b0a-865b-42e6-be7a-1f98281f3dcf\",\n  \"dishUuid\": \"3e094e06-6718-49b0-a2f2-1551d79f4306\"\n}",
+        "form": []
+      },
+      "reqType": "get",
+      "tests": []
+    }
+  ]
+}

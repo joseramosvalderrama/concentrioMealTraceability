@@ -38,7 +38,7 @@ router.get(`${BASE_URL}/statistic/main`, async (req, res) => {
 });
 
 const getAverage = (list) =>
-  restaurantScores.reduce((acc, num) => acc + num, 0) / list.length;
+  list.reduce((acc, num) => acc + num, 0) / list.length;
 
 router.get(`${BASE_URL}`, async (req, res) => {
   const restaurants = await restaurantRepo.findAll();
