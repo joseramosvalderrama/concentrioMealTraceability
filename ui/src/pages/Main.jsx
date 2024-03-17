@@ -19,9 +19,9 @@ function Main() {
   }, []);
 
   return (
-    <div className="flex-col justify-center items-center p-5 m-5">
-      <div className="flex justify-center">
-        <p className="text-3xl">Concentrio meal traceability</p>
+    <div className="flex flex-col justify-center items-center p-3 m-3">
+      <div className="flex justify-center m-5">
+        <p className="text-3xl font-bold">Concentrio meal traceability</p>
       </div>
       {statistics.map((statistic) => (
         <StatisticBox statistic={statistic} />
