@@ -5,4 +5,14 @@ const getMainStatistics = async () => {
   return response.json();
 };
 
-export { getMainStatistics };
+const findAllResturant = async () => {
+  const response = await fetch(`${BASE_URL}/restaurant`);
+  return response.json();
+};
+
+const findAllDish = async () => {
+  const response = await fetch(`${BASE_URL}/dish`);
+  return response.json();
+};
+
+export { getMainStatistics, findAllResturant, findAllDish };

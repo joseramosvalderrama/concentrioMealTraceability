@@ -1,6 +1,7 @@
 import StatisticBox from "../components/StatisticBox";
 import { useEffect, useState } from "react";
 import { getMainStatistics } from "../api/restClient";
+import DishForm from "../components/DishForm";
 
 function Main() {
   const [statistics, setStatistics] = useState([]);
@@ -26,6 +27,7 @@ function Main() {
       {statistics.map((statistic) => (
         <StatisticBox statistic={statistic} />
       ))}
+      <DishForm />
     </div>
   );
 }
