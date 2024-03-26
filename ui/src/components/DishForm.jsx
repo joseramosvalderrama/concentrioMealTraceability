@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { findAllDish, findAllResturant } from "../api/restClient";
+import { findAllDish, findAllResturant, postDish } from "../api/restClient";
 
-const DishForm = () => {
+const ScoreForm = (props) => {
   const [score, setScore] = useState("");
   const [restaurant, setRestaurant] = useState();
   const [dish, setDish] = useState("");
@@ -20,10 +20,17 @@ const DishForm = () => {
     fetchData();
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log({ score, restaurant, dish, comment });
+  const handleSubmit = async (e) => {
+    //e.preventDefault();
+    const foundDish =
+      dishOptions.find((dishOpt) => dishOpt.name === dish) ||
+      (await postDish({ name: dish }));
+    props.onSubmit({
+      score,
+      restaurantUuid: restaurant.uuid,
+      dishUuid: foundDish.uuid,
+      comment,
+    });
   };
 
   return (
@@ -42,6 +49,8 @@ const DishForm = () => {
             value={score}
             onChange={(e) => setScore(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+            max="5"
+            min="0"
             required
           />
         </div>
@@ -121,4 +130,4 @@ const DishForm = () => {
   );
 };
 
-export default DishForm;
+export default ScoreForm;

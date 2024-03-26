@@ -12,12 +12,15 @@ Dish = Dish.init(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
   },
   { sequelize, modelName: "dish" }
 );
 
-Dish.sync();
+Dish.sync({ alter: true });
 
 const findAll = async () => {
   const rows = await Dish.findAll();
@@ -29,8 +32,14 @@ const findByUuid = async (uuid) => {
 };
 
 const create = async (dish) => {
-  await Dish.create(dish);
-  console.log("Created dish in database");
+  try {
+    const created = await Dish.create(dish);
+    console.log("Created dish in database");
+    return created;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
 };
 
 const deleteByUuid = async (uuid) => {

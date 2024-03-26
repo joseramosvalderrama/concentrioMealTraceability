@@ -12,12 +12,15 @@ Restaurant = Restaurant.init(
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
     },
-    name: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      unique: true,
+    },
   },
   { sequelize, modelName: "restaurant" }
 );
 
-Restaurant.sync();
+Restaurant.sync({ alter: true });
 
 const findAll = async () => {
   const rows = await Restaurant.findAll();

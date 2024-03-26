@@ -11,6 +11,6 @@ router.get(`${BASE_URL}`, async (req, res) => {
 });
 
 router.post(`${BASE_URL}`, async (req, res) => {
-  await repo.create(req.body);
-  res.sendStatus(200);
+  const created = await repo.create(req.body);
+  res.json(created);
 });
