@@ -34,7 +34,10 @@ const ScoreForm = (props) => {
   };
 
   return (
-    <div className="container mx-auto mt-5">
+    <div className="containers py-5 bg-slate-100">
+      <div className="flex justify-center my-5">
+        <h3 className="text-xl font-bold text-gray-700">Daily vote</h3>
+      </div>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto">
         <div className="mb-4">
           <label

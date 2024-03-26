@@ -27,7 +27,7 @@ router.get(`${BASE_URL}/statistic/main`, async (req, res) => {
         ...dishGroupByUuid[score.dishUuid],
         score: score.score,
       }))
-      .sort((a, b) => a.score - b.score);
+      .sort((a, b) => b.score - a.score);
     return {
       ...restaurant,
       average: average,
