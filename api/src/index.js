@@ -2,10 +2,11 @@ import express from "express";
 import { router as dishRouter } from "./dishRouter.js";
 import { router as restaurantRouter } from "./restaurantRouter.js";
 import { router as scoreRouter } from "./scoreRouter.js";
+import { router as userRouter } from "./userRouter.js";
+import { verifyToken } from "./middleware/auth.js";
 
 const app = express();
 
-//Convert json bodies to JavaScript object
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -20,6 +21,8 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(userRouter);
+app.use((req, res, next) => verifyToken(req, res, next));
 app.use(dishRouter);
 app.use(restaurantRouter);
 app.use(scoreRouter);

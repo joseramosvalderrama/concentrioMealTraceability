@@ -1,126 +1,166 @@
 {
-  "client": "Thunder Client",
-  "collectionName": "concentrio_meal_traceability",
-  "dateExported": "2024-03-16T07:58:33.041Z",
-  "version": "1.1",
-  "folders": [],
-  "requests": [
-    {
-      "_id": "c6e66ca6-20f8-4294-a80a-aeffd068d3ad",
-      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
-      "containerId": "",
-      "name": "dishGetAll",
-      "url": "http://localhost:3000/dish",
-      "method": "GET",
-      "sortNum": 10000,
-      "created": "2024-03-16T07:36:13.521Z",
-      "modified": "2024-03-16T07:36:23.141Z",
-      "headers": [],
-      "params": [],
-      "tests": []
-    },
-    {
-      "_id": "50e9cd21-97d8-4dbe-b0f5-04b97ccc2d12",
-      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
-      "containerId": "",
-      "name": "dishPost",
-      "url": "http://localhost:3000/dish",
-      "method": "POST",
-      "sortNum": 20000,
-      "created": "2024-03-16T07:36:27.073Z",
-      "modified": "2024-03-16T07:38:29.111Z",
-      "headers": [],
-      "params": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"name\": \"curry wurst\"\n}",
-        "form": []
-      },
-      "reqType": "get",
-      "tests": []
-    },
-    {
-      "_id": "54775707-fc73-4c4f-81f8-7ee7064abd67",
-      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
-      "containerId": "",
-      "name": "restaurantGetAll",
-      "url": "http://localhost:3000/restaurant",
-      "method": "GET",
-      "sortNum": 20000,
-      "created": "2024-03-16T07:45:16.339Z",
-      "modified": "2024-03-16T07:45:34.701Z",
-      "headers": [],
-      "params": [],
-      "tests": []
-    },
-    {
-      "_id": "badd8b6d-24e8-41be-9e6c-4bb0c6730daa",
-      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
-      "containerId": "",
-      "name": "restaurantStatisticMain",
-      "url": "http://localhost:3000/restaurant/statistic/main",
-      "method": "GET",
-      "sortNum": 20000,
-      "created": "2024-03-16T07:54:41.582Z",
-      "modified": "2024-03-16T07:55:03.375Z",
-      "headers": [],
-      "params": [],
-      "tests": []
-    },
-    {
-      "_id": "8732107f-3a2c-4f41-a9aa-a83b853ce5d7",
-      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
-      "containerId": "",
-      "name": "restaurantPost",
-      "url": "http://localhost:3000/restaurant",
-      "method": "POST",
-      "sortNum": 22500,
-      "created": "2024-03-16T07:46:33.042Z",
-      "modified": "2024-03-16T07:47:25.939Z",
-      "headers": [],
-      "params": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"name\": \"Mechanic kantine\"\n}",
-        "form": []
-      },
-      "reqType": "get",
-      "tests": []
-    },
-    {
-      "_id": "d043b14a-efcd-4cfd-a34c-1001e6bd3ada",
-      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
-      "containerId": "",
-      "name": "scoreGetAll",
-      "url": "http://localhost:3000/score",
-      "method": "GET",
-      "sortNum": 25000,
-      "created": "2024-03-16T07:48:37.728Z",
-      "modified": "2024-03-16T07:49:37.955Z",
-      "headers": [],
-      "params": [],
-      "reqType": "get",
-      "tests": []
-    },
-    {
-      "_id": "5a859d07-747d-4fb7-8cf7-833c618ef10e",
-      "colId": "d70c21d9-1f87-4e1e-b8f0-6d0acb57ef04",
-      "containerId": "",
-      "name": "scoreGetAll Copy",
-      "url": "http://localhost:3000/score",
-      "method": "POST",
-      "sortNum": 35000,
-      "created": "2024-03-16T07:50:05.426Z",
-      "modified": "2024-03-16T07:53:06.827Z",
-      "headers": [],
-      "params": [],
-      "body": {
-        "type": "json",
-        "raw": "{\n  \"score\": 4.5,\n  \"comment\": \"Delicious\",\n  \"restaurantUuid\": \"a0643b0a-865b-42e6-be7a-1f98281f3dcf\",\n  \"dishUuid\": \"3e094e06-6718-49b0-a2f2-1551d79f4306\"\n}",
-        "form": []
-      },
-      "reqType": "get",
-      "tests": []
-    }
-  ]
+    "client": "Thunder Client",
+    "collectionName": "concentrio_meal_traceability",
+    "dateExported": "2024-03-27T10:32:57.583Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "a9df82d5-45ba-4ed8-8ae3-b8a52221b8c1",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "dishGetAll",
+            "url": "http://localhost:3000/dish",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-16T07:59:47.118Z",
+            "modified": "2024-03-27T10:27:37.422Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0MDdmMWY1OS1lYTM3LTRmNDctYmUwYi0yNGY2MDk1N2Y0YmYiLCJpYXQiOjE3MTE1MzUyMjUsImV4cCI6MTcxMTUzODgyNX0.mmFM5Z-n8G5S-1sJej28Ui1ocXBcA_PRZjxk15Zkbs4"
+            },
+            "tests": []
+        },
+        {
+            "_id": "c77bb703-c5e8-4eb7-8708-598957bf3d97",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "dishPost",
+            "url": "http://localhost:3000/dish",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-16T07:59:47.119Z",
+            "modified": "2024-03-26T08:13:26.357Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"goulash\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1589e781-2cb1-4d33-b6d8-85a962719942",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "restaurantGetAll",
+            "url": "http://localhost:3000/restaurant",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-16T07:59:47.120Z",
+            "modified": "2024-03-16T07:59:47.120Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "c37f0b2f-4249-415e-b74f-ea8fc3905eb6",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "restaurantStatisticMain",
+            "url": "http://localhost:3000/restaurant/statistic/main",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-16T07:59:47.124Z",
+            "modified": "2024-03-16T07:59:47.124Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "030b2a88-736e-412e-aa37-9e9b09a28a34",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "restaurantPost",
+            "url": "http://localhost:3000/restaurant",
+            "method": "POST",
+            "sortNum": 22500,
+            "created": "2024-03-16T07:59:47.121Z",
+            "modified": "2024-03-17T09:24:35.059Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Bakery\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "24b6ae92-d463-4d30-a803-3dd3d241ca60",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "scoreGetAll",
+            "url": "http://localhost:3000/score",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2024-03-16T07:59:47.122Z",
+            "modified": "2024-03-16T07:59:47.122Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8f654b35-d640-4c43-8543-978fa8c80cfb",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "scorePost",
+            "url": "http://localhost:3000/score",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2024-03-16T07:59:47.123Z",
+            "modified": "2024-03-17T09:28:00.496Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"score\": 4.2,\n  \"comment\": \"\",\n  \"restaurantUuid\": \"a0643b0a-865b-42e6-be7a-1f98281f3dcf\",\n  \"dishUuid\": \"8cffeab6-7a56-47f9-b5bf-301e7f529f5d\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "44b30b2f-3190-42d6-b5b1-bcad13ea24f9",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "register",
+            "url": "http://localhost:3000/register",
+            "method": "POST",
+            "sortNum": 45000,
+            "created": "2024-03-27T10:11:32.131Z",
+            "modified": "2024-03-27T10:12:45.021Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"jose.ramos@concentrio.io\",\n  \"password\": \"concentrio123\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0714497e-93d3-4d06-b33a-803b5be1ce43",
+            "colId": "1c918e4e-7a2b-45c4-afa2-918c515394b7",
+            "containerId": "",
+            "name": "login",
+            "url": "http://localhost:3000/login",
+            "method": "POST",
+            "sortNum": 55000,
+            "created": "2024-03-27T10:13:04.020Z",
+            "modified": "2024-03-27T10:13:16.964Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"jose.ramos@concentrio.io\",\n  \"password\": \"concentrio123\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
 }
