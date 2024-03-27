@@ -22,10 +22,20 @@ router.get(`${BASE_URL}/statistic/main`, async (req, res) => {
       (score) => score.restaurantUuid === restaurant.uuid
     );
     const average = getAverage(restaurantScores.map((score) => score.score));
-    const dishesOrderedByScore = restaurantScores
-      .map((score) => ({
-        ...dishGroupByUuid[score.dishUuid],
-        score: score.score,
+    const dishRestaurantScores = restaurantScores.reduce((acc, el) => {
+      const { dishUuid, score } = el;
+      if (!acc[dishUuid]) {
+        acc[dishUuid] = [score];
+      } else {
+        acc[dishUuid].push(score);
+      }
+      return acc;
+    }, {});
+
+    const dishesOrderedByScore = Object.entries(dishRestaurantScores)
+      .map(([key, value]) => ({
+        ...dishGroupByUuid[key],
+        score: getAverage(value),
       }))
       .sort((a, b) => b.score - a.score);
     return {
