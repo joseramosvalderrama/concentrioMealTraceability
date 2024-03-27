@@ -24,11 +24,16 @@ Score = Score.init(
       defaultValue: DataTypes.UUIDV4,
       field: "dish_uuid",
     },
+    userUuid: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      field: "user_uuid",
+    },
   },
   { sequelize, modelName: "score" }
 );
 
-Score.sync();
+Score.sync({ alter: true });
 
 const findAll = async () => {
   const rows = await Score.findAll();
