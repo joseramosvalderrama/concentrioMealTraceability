@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { findAllDish, findAllResturant, postDish } from "../api/restClient";
+import { useNavigate } from "react-router";
 
 const ScoreForm = (props) => {
   const [score, setScore] = useState("");
@@ -8,6 +9,8 @@ const ScoreForm = (props) => {
   const [comment, setComment] = useState("");
   const [restaurantOptions, setRestaurantOptions] = useState([]);
   const [dishOptions, setDishOptions] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,16 +24,18 @@ const ScoreForm = (props) => {
   }, []);
 
   const handleSubmit = async (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     const foundDish =
       dishOptions.find((dishOpt) => dishOpt.name === dish) ||
       (await postDish({ name: dish }));
+    console.log({ dish: foundDish });
     props.onSubmit({
       score,
       restaurantUuid: restaurant.uuid,
       dishUuid: foundDish.uuid,
       comment,
     });
+    navigate("/main");
   };
 
   return (
@@ -47,7 +52,8 @@ const ScoreForm = (props) => {
             Score
           </label>
           <input
-            type="number"
+            type="text"
+            pattern="[0-5](\.[0-9])?"
             id="score"
             value={score}
             onChange={(e) => setScore(e.target.value)}

@@ -11,13 +11,13 @@ const findAllResturant = async () => {
 };
 
 const findAllDish = async () => {
-  const response = await makeFetch("GET", "dish");
+  const response = await makeFetch("GET", "/dish");
   return response.json();
 };
 
 const postDish = async (dish) => {
   const response = await makeFetch("POST", `/dish`, dish);
-  return response.json();
+  return await response.json();
 };
 
 const postScore = async (score) => {

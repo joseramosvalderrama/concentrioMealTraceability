@@ -1,6 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ProtectedRoute from "./ProtectedRoute";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Login from "./pages/Login";
 import Main from "./pages/Main";
 
@@ -9,14 +13,19 @@ const App = () => {
 
   return (
     <Router>
-      <Switch>
-        <Route path="/login" component={Login} />
-        <ProtectedRoute
-          path="/main"
-          component={Main}
-          isAuthenticated={isAuthenticated}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            isAuthenticated ? <Navigate to="/main" /> : <Navigate to="/login" />
+          }
         />
-      </Switch>
+        <Route
+          path="/main"
+          element={isAuthenticated ? <Main /> : <Navigate to="/login" />}
+        />
+      </Routes>
     </Router>
   );
 };
