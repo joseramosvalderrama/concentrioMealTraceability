@@ -6,10 +6,34 @@ services:
     container_name: postgres_review
     restart: always
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: mealReview
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+  api:
+    image: jmramos98/concentrio-meal-traceability-api
+    build: ./api
+    depends_on:
+      - postgres
+    restart: on-failure
+    environment:
+      DB_HOST: postgres
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+    ports:
+      - "3000:3000"
+  ui:
+    image: jmramos98/concentrio-meal-traceability-ui
+    build: ./ui
+    depends_on:
+      - api
+    restart: on-failure
+    environment:
+      API_HOST: ${API_HOST}
+      API_PORT: ${API_PORT}
+    ports:
+      - "80:80"

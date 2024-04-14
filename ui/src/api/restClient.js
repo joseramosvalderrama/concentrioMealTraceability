@@ -1,4 +1,7 @@
-const BASE_URL = "http://localhost:3000";
+const API_HOST = process.env.API_HOST || "localhost";
+const API_PORT = process.env.API_PORT || "3000";
+
+const BASE_URL = `http://${API_HOST}:${API_PORT}`;
 
 const getMainStatistics = async () => {
   const response = await makeFetch("GET", "/restaurant/statistic/main");
