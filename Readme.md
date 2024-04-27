@@ -8,12 +8,4 @@ Another idea is making a quick scrap to the kantina's web for having all the men
 
 This will be the definite app for concentrio meals!
 
-## Technologies
-
-I thought about making a simple backend api using node and express. It could be connected to a simple mongodb, postgresql or mysql.
-
-For the frontend I feel more confident with react and we can use a css tool like bootstrap or tailwind.
-
-## Launch database
-
-` docker compose up -d`
+First mvp of the app has been created and is about to be delivered. Looking forward for first user feedback!
