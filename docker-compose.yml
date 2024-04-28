@@ -33,7 +33,7 @@ services:
       - api
     restart: on-failure
     environment:
-      API_HOST: ${API_HOST}
-      API_PORT: ${API_PORT}
+      MY_APP_API_URL: ${MY_APP_API_URL}
+      MY_APP_API_PORT: ${MY_APP_API_PORT}
     ports:
       - "80:80"

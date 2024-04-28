@@ -1,7 +1,9 @@
-const API_HOST = process.env.API_HOST || "localhost";
-const API_PORT = process.env.API_PORT || "3000";
+const API_HOST = import.meta.env.VITE_API_HOST;
+const API_PORT = import.meta.env.VITE_API_PORT;
 
 const BASE_URL = `http://${API_HOST}:${API_PORT}`;
+
+console.log(import.meta.env.MODE);
 
 const getMainStatistics = async () => {
   const response = await makeFetch("GET", "/restaurant/statistic/main");
