@@ -20,6 +20,7 @@ router.post(`/login`, async (req, res) => {
   try {
     const { username, password } = req.body;
     const user = await repo.findByUserName(username);
+    console.log({ user });
     if (!user) {
       return res.status(404).json({ error: "User not found" });
     }
@@ -27,8 +28,6 @@ router.post(`/login`, async (req, res) => {
     if (!passwordMatch) {
       return res.status(401).json({ error: "Authentication failed" });
     }
-    console.log("login");
-    console.log({ user });
     const token = jwt.sign({ userId: user.uuid }, "concentrio", {
       expiresIn: "1h",
     });

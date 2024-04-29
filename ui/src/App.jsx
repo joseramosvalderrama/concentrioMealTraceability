@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Main from "./pages/Main";
 
 const App = () => {
-  const isAuthenticated = !!sessionStorage.getItem("token");
+  const isAuthenticated = () => !!sessionStorage.getItem("token");
 
   return (
     <Router>

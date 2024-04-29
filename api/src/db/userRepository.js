@@ -36,7 +36,7 @@ const findByUuid = async (uuid) => {
 };
 
 const findByUserName = async (username) => {
-  const row = await User.findOne({ username });
+  const row = await User.findOne({ where: { username } });
   return toPlainObj(row);
 };
 
