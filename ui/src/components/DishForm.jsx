@@ -25,6 +25,9 @@ const ScoreForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!restaurant) {
+      return;
+    }
     const foundDish =
       dishOptions.find((dishOpt) => dishOpt.name === dish) ||
       (await postDish({ name: dish }));
@@ -99,6 +102,7 @@ const ScoreForm = (props) => {
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
             required
           >
+            <option></option>
             {restaurantOptions.map((restaurant) => (
               <option key={restaurant.uuid} value={restaurant.uuid}>
                 {restaurant.name}
