@@ -4,6 +4,7 @@ import { router as restaurantRouter } from "./restaurantRouter.js";
 import { router as scoreRouter } from "./scoreRouter.js";
 import { router as userRouter } from "./userRouter.js";
 import { verifyToken } from "./middleware/auth.js";
+import serverless from "serverless-http";
 
 const app = express();
 
@@ -27,6 +28,10 @@ app.use(dishRouter);
 app.use(restaurantRouter);
 app.use(scoreRouter);
 
-app.listen(3000, () => {
-  console.log("App listening on port 3000!");
-});
+if (process.env.DEVELOPMENT) {
+  app.listen(3000, () => {
+    console.log("App listening on port 3000!");
+  });
+}
+
+export const handler = serverless(app);

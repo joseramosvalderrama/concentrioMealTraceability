@@ -1,7 +1,4 @@
-const API_HOST = import.meta.env.VITE_API_HOST;
-const API_PORT = import.meta.env.VITE_API_PORT;
-
-const BASE_URL = `http://${API_HOST}:${API_PORT}`;
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 console.log(import.meta.env.MODE);
 
